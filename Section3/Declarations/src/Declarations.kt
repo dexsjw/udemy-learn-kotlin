@@ -39,6 +39,15 @@ fun main(args: Array<String>) {
 
     println(employee1)
 
+    val employee2: Employee
+    val number2 = 100
+
+//    if (number < number2) {
+//        employee2 = Employee("Jane Smith", 400)
+//    } else {
+//        employee2 = Employee("Mike Watson", 150)
+//    }
+
     val change = 4.22
     println("To show the value of change, we use \$change")
     println("Your change is $$change")
@@ -49,14 +58,17 @@ fun main(args: Array<String>) {
 
     println("The employee's id is ${employee1.id}")
 
-    val employee2: Employee
-    val number2 = 100
-
-    if (number < number2) {
-        employee2 = Employee("Jane Smith", 400)
-    } else {
-        employee2 = Employee("Mike Watson", 150)
-    }
+    val filePath = """C:\somedir\somedir2"""
+    val eggName = "Humpty"
+    val nurseryRhyme = """$eggName Dumpty sat on the wall
+        |$eggName Dumpty had a great fall
+        |All the king's horses and all the king's men
+        |Couldn't put $eggName together again.""".trimMargin()
+    val someString = """Hello
+        |World
+    """.trimMargin()
+    println(nurseryRhyme)
+    println(someString)
 }
 
 class Employee(var name: String, val id: Int) {
