@@ -2,16 +2,24 @@ package academy.learnprogramming.nullreferences
 
 fun main(args: Array<String>) {
 
-    val str: String? = "This isn't null"
-    str?.let { printText(it) } // ".let" wants a lambda expression
+    val nullableInts = arrayOfNulls<Int>(5)
+    for (i in nullableInts) {
+        println(i)
+    }
+    println(nullableInts[3].toString())
 
-    val str4: String? = null
-    val anotherStr = "This isn't nullable"
-    println(str4 == anotherStr)
+//    Section4-32
+//    val str: String? = "This isn't null"
+//    str?.let { printText(it) } // ".let" wants a lambda expression
+//
+//    val str4: String? = null
+//    val anotherStr = "This isn't nullable"
+//    println(str4 == anotherStr)
+//
+//    val str2 = str!!
+//    val str3 = str2.uppercase()
 
-    val str2 = str!!
-    val str3 = str2.uppercase()
-
+//    Section4-31
 //    val str4 = str!!.uppercase()
 //    // str?.uppercase() is similar to this in Java:
 //    /*
