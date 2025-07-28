@@ -13,11 +13,97 @@ package academy.learnprogramming.accessmodifiers
 
 fun main(args: Array<String>) {
 
-    val emp = Employee()
-    println(emp)
+    val emp1 = Employee("John")
+    println(emp1.firstName)
+    println(emp1.fullTime)
+
+    val emp2 = Employee("Joe")
+    println(emp2.firstName)
+    println(emp2.fullTime)
+
+    val emp3 = Employee("Jane", false)
+    println(emp3.firstName)
+    println(emp3.fullTime)
+
+    println(Demo().dummy)
 
 }
 
-private class Employee {
+// Section5-37
+// All classes in Kotlin are "public final" by default
+
+// First version of a working Employee class
+//class Employee(val firstName: String) {
+//
+//    var fullTime: Boolean = true
+//
+//    constructor(firstName: String, fullTime: Boolean): this(firstName) {
+//        this.fullTime = fullTime
+//    }
+//
+//}
+
+// Final version of a working Employee class
+class Employee(val firstName: String, var fullTime: Boolean = true) {
 
 }
+
+// It's perfectly okay to not have a primary constructor
+// Just don't include parentheses after class name
+class Demo {
+    // default values can be used as well
+    // val dummy: String = "hello"
+    val dummy: String
+
+    constructor() {
+        dummy = "Hello"
+    }
+}
+
+// 1. Long way of defining a class equivalent to Java
+//class Employee constructor(firstName: String) {
+//
+//    val firstName: String
+//
+//    init {
+//        this.firstName = firstName
+//    }
+//
+//}
+
+// 2. First simplification
+//class Employee constructor(firstName: String) {
+//
+//    val firstName: String = firstName
+//
+//}
+
+// 3. Second simplification
+//class Employee(var firstName: String) { // "var" works too
+//class Employee(val firstName: String) {
+//
+//}
+
+// If primary constructor is to be protected:
+//class Employee protected constructor(val firstName: String) {
+//
+//}
+
+// Unlike primary constructor, secondary constructor doesn't allow declaration and assignment of property in one line
+// The below will not work
+//class Employee(val firstName: String) {
+//
+//    // If a primary constructor is present, secondary constructors needs to call the primary constructor
+//    // i.e. ": this(firstName)"
+//    constructor(val firstName: String, val fullTime: Boolean) {
+//
+//    }
+//
+//    // Secondary constructors do not declare a property for us,
+//    // only the primary constructor does
+//    // When needed, the property has to be explicitly declared
+//    constructor(firstName: String, val fullTime: Boolean): this(firstName) {
+//
+//    }
+//
+//}
