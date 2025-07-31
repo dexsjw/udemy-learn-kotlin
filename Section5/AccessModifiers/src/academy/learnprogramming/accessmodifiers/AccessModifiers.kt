@@ -15,6 +15,7 @@ fun main(args: Array<String>) {
 
     val emp1 = Employee("John")
     println(emp1.firstName)
+    emp1.fullTime = false
     println(emp1.fullTime)
 
     val emp2 = Employee("Joe")
@@ -44,7 +45,19 @@ fun main(args: Array<String>) {
 //}
 
 // Final version of a working Employee class
-class Employee(val firstName: String, var fullTime: Boolean = true) {
+class Employee(val firstName: String, fullTime: Boolean = true) {
+
+    // Section5-38: Custom Getters and Setters
+    // If no additional feature is needed, Kotlin auto generates default Getters and Setters
+    var fullTime = fullTime
+        get() {
+            println("Running the custom get")
+            return field
+        }
+        set(value) {
+            println("Running the custom set")
+            field = value
+        }
 
 }
 

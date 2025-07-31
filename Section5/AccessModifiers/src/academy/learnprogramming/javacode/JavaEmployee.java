@@ -3,7 +3,7 @@ package academy.learnprogramming.javacode;
 public class JavaEmployee {
 
     private final String firstName;
-    private final boolean fullTime;
+    private boolean fullTime;
 
     public JavaEmployee(String firstName) {
         this.firstName = firstName;
@@ -14,4 +14,17 @@ public class JavaEmployee {
         this.firstName = firstName;
         this.fullTime = fullTime;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public boolean isFullTime() {
+        return fullTime;
+    }
+
+    public void setFullTime(boolean fullTime) {
+        this.fullTime = fullTime;
+    }
+
 }
