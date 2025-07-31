@@ -11,22 +11,53 @@ package academy.learnprogramming.accessmodifiers
 // Kotlin's private is compiled to "package-private" ("default" in Java)
 // Kotlin's internal is compiled to "public" (Java)
 
+val MY_CONSTANT = 100
+
 fun main(args: Array<String>) {
 
+    val car1 = Car("blue", "Toyota", 2015)
+    println(car1)
+    val car2 = Car("blue", "Toyota", 2015)
+    println(car1 == car2)
+    val car3 = car1.copy()
+    println(car3)
+    val car4 = car1.copy(year = 2016, color = "green")
+    println(car4)
+
     val emp1 = Employee("John")
-    println(emp1.firstName)
-    emp1.fullTime = false
-    println(emp1.fullTime)
+    println(emp1)
+    val emp2 = Employee("John")
+    println(emp1 == emp2)
+    // Expects "false" even though both instances are structurally equal
+    // because the ".equals()" function have not been overridden in the Employee class.
+    // Hence, ".equals()" function will just compare the two references, which are not equal
+    // because they are two distinct instances
 
-    val emp2 = Employee("Joe")
-    println(emp2.firstName)
-    println(emp2.fullTime)
+    println(MY_CONSTANT)
 
-    val emp3 = Employee("Jane", false)
-    println(emp3.firstName)
-    println(emp3.fullTime)
+//    val emp1 = Employee("John")
+//    println(emp1.firstName)
+//    emp1.fullTime = false
+//    println(emp1.fullTime)
+//
+//    val emp2 = Employee("Joe")
+//    println(emp2.firstName)
+//    println(emp2.fullTime)
+//
+//    val emp3 = Employee("Jane", false)
+//    println(emp3.firstName)
+//    println(emp3.fullTime)
+//
+//    println(Demo().dummy)
 
-    println(Demo().dummy)
+}
+
+// Section5-39
+// "data class" cannot be abstract, sealed or inner
+// Used for storing state information
+// Auto included defaults:
+// Getters, Setters, ".equals()" function, hash code function, "toString()" function, "copy()" function
+data class Car(val color: String, val model: String, val year: Int){
 
 }
 
