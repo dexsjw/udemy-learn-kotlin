@@ -22,6 +22,18 @@ fun main(args: Array<String>) {
     for (car in lotsOfCars) {
         println(car)
     }
+
+    val str = "this is all in lowercase"
+    println(Utils().upperFirstAndLast(str))
+    println(str.upperFirstAndLast())
+
+}
+
+fun String.upperFirstAndLast(): String {
+//    val upperFirst = this.substring(0, 1).uppercase() + this.substring(1)
+    val upperFirst = substring(0, 1).uppercase() + substring(1)
+    return upperFirst.substring(0, upperFirst.length - 1) +
+            upperFirst.substring(upperFirst.length - 1, upperFirst.length).uppercase()
 }
 
 //fun printCarColors(vararg cars: Car, str: String) {
