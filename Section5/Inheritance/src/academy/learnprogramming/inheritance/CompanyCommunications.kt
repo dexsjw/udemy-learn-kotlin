@@ -2,6 +2,11 @@ package academy.learnprogramming.inheritance
 
 import java.time.Year
 
+// Three use cases for "object" keyword:
+// 1. Singletons
+// 2. Companion Objects
+// 3. Object Expressions
+
 fun main(args: Array<String>) {
     println(CompanyCommunications.getTagLine())
     println(CompanyCommunications.getCopyrightLine())
