@@ -10,8 +10,23 @@ import java.time.Year
 fun main(args: Array<String>) {
     println(CompanyCommunications.getTagLine())
     println(CompanyCommunications.getCopyrightLine())
+
+    // Using companion object to access private static property
+    println(SomeClass.Companion.accessPrivateVar()) // "Companion" keyword is optional
+    println(SomeClass.accessPrivateVar())
+
+    // Using companion object with private primary constructor
+    // to prevent instances being created via constructors.
+    // Factory methods in the companion object have to be used instead to create instances.
+    val someClass1 = SomeClass.justAssign("this is the string as is")
+    val someClass2 = SomeClass.upperOrLowerCase("this isn't the string as is", false)
+    println(someClass1.someString)
+    println(someClass2.someString)
+//    val someClass3 = SomeClass("") // does not work
+
 }
 
+// Section5-46
 // Singleton
 // No constructors - no other instance of this class can be created
 // The one single instance is created when it is first used i.e. line 6
@@ -22,5 +37,27 @@ object CompanyCommunications {
 
     fun getTagLine() = "Our company rocks!"
     fun getCopyrightLine() = "Copyright \u00A9 $currentYear Our Company. All rights reserved."
+
+}
+
+// Section5-47
+// Companion object
+class SomeClass private constructor(val someString: String) {
+
+    // Similar to using static in Java
+    companion object {
+        private var privateVar = 6
+
+        fun accessPrivateVar() = "I'm accessing privateVar: $privateVar"
+
+        fun justAssign(str: String) = SomeClass(str)
+        fun upperOrLowerCase(str: String, lowerCase: Boolean): SomeClass {
+            if (lowerCase) {
+                return SomeClass(str.lowercase())
+            } else {
+                return SomeClass(str.uppercase())
+            }
+        }
+    }
 
 }
