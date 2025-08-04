@@ -31,13 +31,22 @@ class SpecialLaserPrinter(modelName: String, pagePerMinute: Int): LaserPrinter(m
 }
 
 // Demo for class without primary constructor and only have secondary constructor
-open class Something {
+open class Something: MySubInterface {
 
     val someProperty: String
+    override val number: Int = 25
 
     constructor(someParameter: String) {
         someProperty = someParameter
         println("I'm in the parent's constructor")
+    }
+
+    override fun mySubFunction(num: Int): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun myFunction(str: String): String {
+        TODO("Not yet implemented")
     }
 
 }
@@ -55,6 +64,24 @@ class SomethingElse: Something {
 // data classes are meant to just store state so why make it extendable?
 // data classes can extend other classes but doesn't allow inheritance from data class
 //open data class DataClass(val number: Int) {
-data class DataClass(val number: Int) {
+//
+//}
+
+// "open" keyword not needed as interfaces are extendable by default
+interface MyInterface {
+
+    val number: Int
+    val number2: Int
+        get() = number * 100
+        // get() = field * 100
+        // interface properties cannot have a backing field
+
+    fun myFunction(str: String): String
+
+}
+
+interface MySubInterface: MyInterface {
+
+    fun mySubFunction(num: Int): String
 
 }
