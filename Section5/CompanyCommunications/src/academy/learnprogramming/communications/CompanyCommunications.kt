@@ -8,6 +8,8 @@ import java.time.Year
 // 3. Object Expressions
 
 fun main(args: Array<String>) {
+    topLevel("I'm private!")
+
     println(Department.HR.getDeptInfo())
     println(Department.IT.getDeptInfo())
     println(Department.ACCOUNTING.getDeptInfo())
@@ -44,6 +46,7 @@ fun main(args: Array<String>) {
 }
 
 // Section5-50
+//private fun topLevel(str: String) = println("Top level function: $str")
 fun topLevel(str: String) = println("Top level function: $str")
 
 fun String.upperFirstAndLast(): String {
@@ -70,7 +73,8 @@ object CompanyCommunications {
     val currentYear = Year.now().value
 
     fun getTagLine() = "Our company rocks!"
-    fun getCopyrightLine() = "Copyright \u00A9 $currentYear Our Company. All rights reserved."
+    //fun getCopyrightLine() = "Copyright \u00A9 $currentYear Our Company. All rights reserved."
+    internal fun getCopyrightLine() = "Copyright \u00A9 $currentYear Our Company. All rights reserved."
 
 }
 
