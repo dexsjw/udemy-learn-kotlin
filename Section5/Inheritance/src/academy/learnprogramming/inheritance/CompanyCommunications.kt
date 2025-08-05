@@ -8,6 +8,11 @@ import java.time.Year
 // 3. Object Expressions
 
 fun main(args: Array<String>) {
+    println(Department.HR.getDeptInfo())
+    println(Department.IT.getDeptInfo())
+    println(Department.ACCOUNTING.getDeptInfo())
+    println(Department.SALES.getDeptInfo())
+
     // 1. Singleton
     println(CompanyCommunications.getTagLine())
     println(CompanyCommunications.getCopyrightLine())
@@ -36,7 +41,15 @@ fun main(args: Array<String>) {
         }
     })
     println(thisIsMutableInt)
+}
 
+// Section5-49
+// Enum
+enum class Department(val fullName: String, val numEmployees: Int) {
+    HR("Human Resources", 5), IT("Information Technology", 10),
+    ACCOUNTING("Accounting", 3), SALES("Sales", 20);
+
+    fun getDeptInfo() = "The $fullName department has $numEmployees employees"
 }
 
 // Section5-46
