@@ -8,21 +8,34 @@ import java.time.Year
 // 3. Object Expressions
 
 fun main(args: Array<String>) {
+    // 1. Singleton
     println(CompanyCommunications.getTagLine())
     println(CompanyCommunications.getCopyrightLine())
 
+    // 2. Companion Objects
     // Using companion object to access private static property
     println(SomeClass.Companion.accessPrivateVar()) // "Companion" keyword is optional
     println(SomeClass.accessPrivateVar())
 
     // Using companion object with private primary constructor
     // to prevent instances being created via constructors.
-    // Factory methods in the companion object have to be used instead to create instances.
+    // Factory methods in the companion object have to be used to create instances instead.
     val someClass1 = SomeClass.justAssign("this is the string as is")
     val someClass2 = SomeClass.upperOrLowerCase("this isn't the string as is", false)
     println(someClass1.someString)
     println(someClass2.someString)
 //    val someClass3 = SomeClass("") // does not work
+
+    // 3. Object Expressions
+    var thisIsMutableInt = 45
+
+    wantsSomeInterface(object: SomeInterface {
+        override fun mustImplement(num: Int): String {
+            thisIsMutableInt++
+            return "This is from mustImplement: ${num * 100}"
+        }
+    })
+    println(thisIsMutableInt)
 
 }
 
@@ -60,4 +73,14 @@ class SomeClass private constructor(val someString: String) {
         }
     }
 
+}
+
+// Section5-48
+// Object Expression
+interface SomeInterface {
+    fun mustImplement(num: Int): String
+}
+
+fun wantsSomeInterface(si: SomeInterface) {
+    println("Printing from wantsSomeInterface ${si.mustImplement(22)}")
 }
