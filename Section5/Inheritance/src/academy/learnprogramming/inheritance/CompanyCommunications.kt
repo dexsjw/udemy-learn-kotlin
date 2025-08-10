@@ -55,7 +55,7 @@ enum class Department(val fullName: String, val numEmployees: Int) {
 // Section5-46
 // Singleton
 // No constructors - no other instance of this class can be created
-// The one single instance is created when it is first used i.e. line 6
+// The one single instance is created when it is first used i.e. line 6 / line 17
 // "object" declarations can extend classes and implement interfaces
 object CompanyCommunications {
 
