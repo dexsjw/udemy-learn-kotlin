@@ -70,7 +70,7 @@ fun main(args: Array<String>) {
 //    println('e' in str)
 //    println('e' !in str)
 
-    
+
     // Naming loops
     for (i in 1..3) {
         println("i = $i")
