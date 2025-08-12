@@ -101,6 +101,7 @@ fun main(args: Array<String>) {
     println("Value of dnum = $dnum")
 
     // Instructor's solution:
+    // Note that instructor switched the conditions
     println(
         if (num < 100) {
             -234.567
