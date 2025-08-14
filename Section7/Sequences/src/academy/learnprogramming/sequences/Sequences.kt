@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
             // not all elements in the sequence needs to be evaluated
             // .find() is a terminal function that ends the sequence when first value is found
     )
-    
+
     // When working with collections instead of sequences,
     // the order in which functions are called makes a difference
     println(
