@@ -2,6 +2,18 @@ package academy.learnprogramming.maps
 
 fun main(args: Array<String>) {
 
+    val setInts = setOf(10, 15, 19, 5, 3, -22)  // This is an immutable set
+    println(setInts.plus(20))                   // .plus() returns a new instance
+    println(setInts.plus(10))
+    println(setInts.minus(19))                  // .minus() returns a new instance
+    println(setInts.minus(100))
+    println(setInts.average())                  // result is a double
+    println(setInts.drop(3))                    // drop first 3 elements from the set
+
+    val mutableInts = mutableSetOf(1, 2, 3, 4, 5)
+    mutableInts.plus(10)                        // same function as the one for immutable interface
+    println(mutableInts)
+
     val immutableMap = mapOf<Int, Car>(
         1 to Car("green", "Toyota", 2015),
         2 to Car("red", "Ford", 2016),
