@@ -52,7 +52,7 @@ fun main(args: Array<String>) {
     // We are not guaranteed to get the type that we want
     // Mismatch of type -> expected Rose but got Flower
 //    val rose: Rose = roseGarden2.pickFlower2(0)
-    
+
     // Hence, "T" cannot be used in out position for contravariance
 
 }
